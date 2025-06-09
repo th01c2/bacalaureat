@@ -6,6 +6,8 @@ body {
     min-height: 100vh;
     background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
     margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
     color: #333;
 }
 
@@ -14,18 +16,20 @@ body {
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
+    max-width: 700px;
     text-align: center;
     border: 1px solid #ddd;
 }
 
 h1 {
     color: #2c3e50;
+    margin-top: 0;
     margin-bottom: 25px;
     font-size: 2em;
 }
 
+/* Stiluri pentru ecranele de quiz */
 #score-container {
     font-size: 1.1em;
     margin-bottom: 20px;
@@ -38,9 +42,9 @@ h1 {
 }
 
 #question-text {
-    font-size: 1.6em;
+    font-size: 1.5em;
     margin-bottom: 30px;
-    min-height: 80px; /* Asigură înălțime consistentă pentru întrebare */
+    min-height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,24 +52,90 @@ h1 {
     font-weight: 500;
 }
 
+/* Pentru quiz-urile cu input text */
+#answer-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+#answer-input {
+    flex-grow: 1;
+    min-width: 180px;
+    padding: 12px 15px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#answer-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+#submit-answer-button, #give-up-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+#submit-answer-button:hover {
+    background-color: #2980b9;
+}
+
+#give-up-button {
+    background-color: #e74c3c;
+}
+#give-up-button:hover {
+    background-color: #c0392b;
+}
+
+#submit-answer-button:disabled,
+#give-up-button:disabled,
+#answer-input:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+/* Pentru quiz-ul cu variante multiple */
 .options-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    grid-template-columns: 1fr;
+    gap: 10px;
     margin-bottom: 25px;
 }
+
+@media (min-width: 600px) {
+    .options-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+}
+
 
 .option-button {
     background-color: #3498db;
     color: white;
     border: none;
     border-radius: 8px;
-    padding: 15px 20px;
-    font-size: 1.1em;
+    padding: 15px;
+    font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-height: 60px; /* Înălțime consistentă pentru butoane */
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,61 +146,100 @@ h1 {
     transform: translateY(-2px);
 }
 
-.option-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 .option-button.correct {
-    background-color: #27ae60; /* Verde */
-    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.4);
+    background-color: #27ae60 !important;
 }
 
 .option-button.incorrect {
-    background-color: #e74c3c; /* Roșu */
-    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4);
+    background-color: #e74c3c !important;
 }
 
-.option-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.7;
-}
 
 #feedback-message {
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin-top: 20px;
     font-weight: bold;
-    min-height: 30px; /* Înălțime consistentă pentru feedback */
+    min-height: 30px;
 }
 
-#start-button, #restart-button {
+#feedback-message.correct {
+    color: #27ae60;
+}
+
+#feedback-message.incorrect {
+    color: #e74c3c;
+}
+
+/* Butoane generale de control */
+#start-button, #restart-button, .back-to-menu-button {
     background-color: #2ecc71;
     color: white;
     border: none;
     border-radius: 8px;
     padding: 15px 30px;
-    font-size: 1.3em;
+    font-size: 1.2em;
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
 }
 
-#start-button:hover, #restart-button:hover {
+#start-button:hover, #restart-button:hover, .back-to-menu-button:hover {
     background-color: #27ad60;
 }
 
-#game-over-screen {
-    /* display: none; Este gestionat de clasa .hidden */
-    font-size: 1.5em;
-    color: #2c3e50;
-    margin-top: 20px;
+.back-to-menu-button { /* Stil pentru butoanele de "Înapoi la Meniu" din ecranele de game over */
+    background-color: #95a5a6;
+    margin-right: 10px; /* Poate fi ajustat sau eliminat */
+}
+.back-to-menu-button:hover {
+    background-color: #7f8c8d;
 }
 
-#game-over-screen p {
-    margin-bottom: 20px;
+
+#game-over-screen p, #start-screen p {
+    font-size: 1.1em;
+    line-height: 1.6;
 }
 
 .hidden {
     display: none !important;
+}
+
+/* Butonul de back specific quiz-urilor, în header-ul paginii de quiz */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative; /* Pentru a poziționa butonul de back */
+}
+
+.quiz-header .back-button { /* Butonul de back din stânga sus */
+    background-color: #95a5a6;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+    /* Poziționare absolută dacă este necesar un control mai fin,
+       dar flexbox ar trebui să fie suficient de obicei.
+       Dacă titlul este lung, acest buton ar putea fi împins.
+       O soluție este să limităm lățimea titlului sau să folosim position: absolute.
+    */
+}
+.quiz-header .back-button:hover {
+    background-color: #7f8c8d;
+}
+.quiz-header h1 { /* Titlul din header-ul paginii de quiz */
+    margin-bottom: 0;
+    flex-grow: 1; /* Permite titlului să ocupe spațiul rămas */
+    text-align: center;
+    /* Asigură-te că titlul nu împinge butonul de back
+       Poți adăuga un padding-left și padding-right dacă ai un buton de back fix.
+       Ex: padding: 0 50px; (dacă butonul de back are ~50px lățime)
+    */
 }

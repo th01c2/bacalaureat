@@ -3,36 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joc de Literatură Română</title>
+    <title>Joc de Literatură Română - Meniu</title>
+    <!-- CSS-ul este în directorul părinte (root) -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Stiluri specifice pentru meniu, dacă e nevoie de diferențiere */
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .menu-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 20px 30px;
+            font-size: 1.2em; /* Ajustat pentru lizibilitate */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: 90%; /* Responsive width */
+            max-width: 350px; /* Lățime maximă pentru butoane */
+            box-sizing: border-box; /* Include padding-ul */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .menu-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
     <div class="game-container">
         <h1>Joc de Literatură Română</h1>
-
-        <div id="start-screen">
-            <p>Bun venit! Apasă "Start" pentru a-ți testa cunoștințele despre operele și autorii literaturii române!</p>
-            <button id="start-button">START</button>
-        </div>
-
-        <div id="quiz-screen" class="hidden">
-            <div id="score-container">
-                <span>Corecte: <span id="correct-score">0</span></span> |
-                <span>Greșite: <span id="incorrect-score">0</span></span>
-            </div>
-            <div id="question-text"></div>
-            <div id="options-container" class="options-container">
-                <!-- Opțiunile vor fi inserate aici de JavaScript -->
-            </div>
-            <div id="feedback-message"></div>
-        </div>
-
-        <div id="game-over-screen" class="hidden">
-            <p>Jocul s-a terminat! Felicitări, ai parcurs toate întrebările!</p>
-            <button id="restart-button">Joacă din nou</button>
+        <p>Alege modul de joc pentru a-ți testa și îmbunătăți cunoștințele:</p>
+        <div class="menu-container">
+            <a href="invata_variante/invata_variante.html" class="menu-button">Învață pe Variante</a>
+            <a href="invata_ani/invata_ani.html" class="menu-button">Învață Anii Operelor</a>
+            <a href="invata_autori/invata_autori.html" class="menu-button">Învață Autorii Operelor</a>
+            <a href="invata_curente/invata_curente.html" class="menu-button">Învață Curentele Literare</a>
         </div>
     </div>
-
-    <script src="script.js"></script>
+    <!-- <script src="script_main.js"></script> -> Dacă va fi nevoie de JS specific pentru index.html -->
 </body>
 </html>

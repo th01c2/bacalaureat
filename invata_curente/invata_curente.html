@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Învață Curentele Literare - Literatură</title>
+    <link rel="stylesheet" href="../style.css"> <!-- CSS din directorul părinte -->
+</head>
+<body>
+    <div class="game-container">
+        <div class="quiz-header">
+            <a href="../index.html" class="back-button">« Meniu</a>
+            <h1>Învață Curentele Literare</h1>
+        </div>
+
+        <div id="start-screen">
+            <p>Scrie curentul/perioada literară pentru opera dată sau o operă reprezentativă pentru curentul/perioada dată. Fii cât mai specific. Jocul ignoră diacriticele și majusculele. Dacă nu știi, apasă "Mă dau bătut".</p>
+            <button id="start-button">START</button>
+        </div>
+
+        <div id="quiz-screen" class="hidden">
+            <div id="score-container">
+                <span>Corecte: <span id="correct-score">0</span></span> |
+                <span>Greșite: <span id="incorrect-score">0</span></span>
+            </div>
+            <div id="question-text"></div>
+            <div id="answer-section">
+                <input type="text" id="answer-input" placeholder="Scrie răspunsul aici...">
+                <button id="submit-answer-button">Trimite</button>
+                <button id="give-up-button">Mă dau bătut</button>
+            </div>
+            <div id="feedback-message"></div>
+        </div>
+
+        <div id="game-over-screen" class="hidden">
+            <p>Jocul s-a terminat!</p>
+            <div id="final-score-message"></div>
+            <button id="restart-button">Joacă din nou</button>
+            <a href="../index.html" class="back-to-menu-button">Înapoi la Meniu</a>
+        </div>
+    </div>
+
+    <script src="invata_curente.js"></script>
+</body>
+</html>

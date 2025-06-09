@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Învață pe Variante - Literatură</title>
+    <!-- CSS-ul este în directorul părinte (../) -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="quiz-header">
+            <!-- Link către index.html din directorul părinte -->
+            <a href="../index.html" class="back-button">« Meniu</a>
+            <h1>Învață pe Variante</h1>
+        </div>
+
+        <div id="start-screen">
+            <p>Testează-ți cunoștințele alegând varianta corectă din cele patru opțiuni!</p>
+            <button id="start-button">START</button>
+        </div>
+
+        <div id="quiz-screen" class="hidden">
+            <div id="score-container">
+                <span>Corecte: <span id="correct-score">0</span></span> |
+                <span>Greșite: <span id="incorrect-score">0</span></span>
+            </div>
+            <div id="question-text"></div>
+            <div id="options-container" class="options-container">
+                <!-- Opțiunile vor fi inserate aici de JavaScript -->
+            </div>
+            <div id="feedback-message"></div>
+        </div>
+
+        <div id="game-over-screen" class="hidden">
+            <p>Jocul s-a terminat!</p>
+            <div id="final-score-message"></div>
+            <button id="restart-button">Joacă din nou</button>
+            <!-- Link către index.html din directorul părinte -->
+            <a href="../index.html" class="back-to-menu-button">Înapoi la Meniu</a>
+        </div>
+    </div>
+
+    <script src="invata_variante.js"></script>
+</body>
+</html>
